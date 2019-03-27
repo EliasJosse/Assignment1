@@ -24,7 +24,8 @@ public class Matrix {
 
 	public static void main(String[] args) {
 		
-		Matrix a = new Matrix(2,2);
+		//Create two 2x2 matrices with values [1,2][2,3]
+		Matrix a = new Matrix(2,2);				
 		Matrix b = new Matrix(2,2);
 		
 		for(int i=0;i<2;i++)
@@ -33,18 +34,33 @@ public class Matrix {
 				b.setElement(i+1+j, i, j);
 			}
 		
+		//setElemnt works
+		System.out.println("Values");
 		System.out.println(a.getElement(0,0));
 		System.out.println(b.getElement(1,0));
-		System.out.println(b.getElement(0,1));
+		System.out.println(a.getElement(0,1));
 		System.out.println(b.getElement(1,1));
-
-		Matrix c = a.multiply(b);
+		System.out.println();
+		//test add, expected [2,4][4,8]
+		Matrix add_ab = a.add(b);
+		System.out.println("added");
 		
-		System.out.println("multy");
-		System.out.println(c.getElement(0,0));
-		System.out.println(c.getElement(1,0));
-		System.out.println(c.getElement(0,1));
-		System.out.println(c.getElement(1,1));
+		System.out.println(add_ab.getElement(0,0));
+		System.out.println(add_ab.getElement(1,0));
+		System.out.println(add_ab.getElement(0,1));
+		System.out.println(add_ab.getElement(1,1));
+		System.out.println();
+
+		//test multiply, expected [5,8][8,13]
+		Matrix mult_ab = a.multiply(b);
+		
+		System.out.println("multiplied");
+		System.out.println(mult_ab.getElement(0,0));
+		System.out.println(mult_ab.getElement(1,0));
+		System.out.println(mult_ab.getElement(0,1));
+		System.out.println(mult_ab.getElement(1,1));
+		
+		
 	}
 	
 	
@@ -64,13 +80,17 @@ public class Matrix {
 		else throw new IllegalArgumentException  ("Invalid Position"); 
 	}
 	
-	public void add(Matrix other){
+	public Matrix add(Matrix other){
 		if(this.rows==other.rows && this.cols==other.cols){
+			Matrix newMatrix = new Matrix(this.rows, other.cols);
 			for(int r=0;r<this.rows;r++)
 				for(int c=0;c<this.rows;c++)
-					elmts[r][c] = this.getElement(r,c) + other.getElement(r, c);
+					newMatrix.elmts[r][c] = this.getElement(r,c) + other.getElement(r, c);
+			return newMatrix;
 		}
 		else throw new IllegalArgumentException  ("Matrices must match");
+		
+		
 	}
 	
 	
