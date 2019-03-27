@@ -13,13 +13,15 @@ public class MessageQueue {
 		tail = 0;
 	}
 	public Message remove(){
-		Message r = elements[head];
+		assert count > 0 : "feeel";
+		Message r = elements[head]; 
 		head = (head+1) % elements.length;
 		count--;
 		return r;
 	}
 	public void add(Message aMessage)
 	{
+		
 		if((tail + 1) % elements.length == head){
 			MessageQueue newQueue = new MessageQueue(elements.length*2);
 			int lim = this.count; 
@@ -70,6 +72,10 @@ public class MessageQueue {
 		q.add(a);
 		q.add(b);
 		q.add(c);
+		q.add(c);
+		q.remove();
+		q.add(c);
+		
 	
 	}
 	
