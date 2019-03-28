@@ -1,34 +1,32 @@
 package vecka1;
 
-public class testFilter{
-
+public class test{
 	
+
 	public static String[] filter(String[] a, Filter f){
 		int pointer = 0;
 		for(int i=0;i<a.length;i++){
-			if(accept(a[i])){
+			if(f.accept(a[i])){
 				a[pointer] = a[i];
 				pointer++;
 			}
 			
 		}
-		String[] b = new String[pointer+1];
+		String[] b = new String[pointer];
 		for(int i=0;i<pointer;i++){
 			b[i] = a[i];
 		}
 		return b;
 	}
-
-	public static boolean accept(String x) {
-		if(x.length()<=3){
-			return true;
-		}
-		return false;
-	}
 	
 	public static void main(String[] args){
-		
-		
+		String[] words = {"hej","detta","e","en","massa","olika","ord"};
+		Filter f = new stringFilter();
+		words = test.filter(words, f);
+		for (int j = 0; j < words.length; j++) {
+			System.out.println(words[j]);
+		}
+	
 	}
 
 }
