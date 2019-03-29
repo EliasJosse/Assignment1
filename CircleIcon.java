@@ -1,3 +1,5 @@
+package vecka1;
+
 import java.awt.Color;
 import java.awt.Component;
 import java.awt.Graphics;
@@ -14,7 +16,7 @@ public abstract class CircleIcon implements Icon{
 		size = aSize;
 		
 	}
-	
+
 	public interface Icon{
 		
 		int getIconWidth();

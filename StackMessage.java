@@ -1,14 +1,6 @@
-class Message{
-	
-	int info;
-	
-	public Message(){
-		
-		info = 1;
-		
-	}
-	
-}
+
+package vecka1;
+
 
 public class StackMessage {
 	

@@ -1,3 +1,4 @@
+package vecka1;
 
 public class Stack {
 	
