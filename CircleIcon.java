@@ -1,27 +1,17 @@
 package vecka1;
+import java.awt.*;
+import java.awt.geom.*;
+import javax.swing.*;
 
-import java.awt.Color;
-import java.awt.Component;
-import java.awt.Graphics;
-import java.awt.Graphics2D;
-import java.awt.geom.Ellipse2D;
-import javax.swing.Icon;
-
-public abstract class CircleIcon implements Icon{
+public class CircleIcon implements Icon{
 	
 	private int size;
+	private Color c;
 	
 	public CircleIcon(int aSize){
 		
 		size = aSize;
-		
-	}
-
-	public interface Icon{
-		
-		int getIconWidth();
-		int getIconHeight();
-		void paintIcon(Component a, Graphics g, int x, int y, Color c);
+		c = Color.RED;
 		
 	}
 	
@@ -37,33 +27,13 @@ public abstract class CircleIcon implements Icon{
 		
 	}
 	
-	public void paintIcon(Component a, Graphics g, int x, int y, Color c){
+	public void paintIcon(Component a, Graphics g, int x, int y){
 
 		Graphics2D g2 = (Graphics2D) g;
-		Ellipse2D.Double circle = new Ellipse2D.Double(x, y, 1, 1);
+		Ellipse2D.Double circle = new Ellipse2D.Double(x, y, size, size);
 		g2.setColor(c);
 		g2.fill(circle);
 		
 	}
-	
-	/*public void repaint(CircleIcon a, Color c){
-		
-		if(c == Color.RED){
-			
-			a.paintIcon(Color.RED);
-			
-		}
-		else if(c == Color.GREEN){
-		
-			a.paintIcon(Color.GREEN);
-			
-		}
-		else{
-			
-			a.paintIcon(Color.BLUE);
-			
-		}
-		
-	}*/
 
 }
