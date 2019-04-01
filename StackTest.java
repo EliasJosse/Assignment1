@@ -1,10 +1,6 @@
-package vecka1;
-
-
 import static org.junit.Assert.*;
 
 import org.junit.Test;
-
 
 public class StackTest {
 

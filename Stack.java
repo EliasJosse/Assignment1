@@ -1,28 +1,29 @@
-package vecka1;
 
 public class Stack {
 	
 	private int[] element;
 	private int length;
+	private int pointer;
 	
 	public Stack(int x){
 		
 		element = new int[x];
 		length = x;
+		pointer = -1;
 		
 	}
 	
 	public int Pop(){
 		
-		int toPop = element[0];
-		
-		for(int i = 0; i < this.length - 1; i++){
+		if(pointer == -1){
 			
-			this.element[i] = this.element[i+1];
+			throw new IllegalArgumentException();
 			
 		}
 		
-		this.element[this.length - 1] = 0;
+		int toPop = element[pointer];
+		
+		pointer--;
 		
 		return toPop;
 		
@@ -30,13 +31,15 @@ public class Stack {
 	
 	public void Push(int x){
 		
-		for(int i = 0; i < this.length - 1; i++){
+		if(pointer == length - 1){
 			
-			this.element[this.length - 1 - i] = this.element[this.length - 2 - i];
+			throw new IllegalArgumentException();
 			
 		}
 		
-		this.element[0] = x;
+		element[pointer + 1] = x;
+		
+		pointer++;
 		
 	}
 	
@@ -65,41 +68,6 @@ public class Stack {
 	}
 	
 	public static void main(String[] args){
-		
-		Stack a = new Stack(10);		
-		a.element[0] = 1;
-		a.element[1] = 2;
-		a.element[2] = 3;
-		a.element[3] = 4;
-		a.element[4] = 5;
-		
-		int[] b = new int[3];
-		b[0] = 7;
-		b[1] = 8;
-		b[2] = 9;
-		
-		int[] c = new int[2];
-		
-		//a.Pop();
-		//a.Pop();
-		//a.Push(7);
-		//a.Push(8);
-		c = a.Pop(2);
-		//a.Push(3, b);
-		
-		for(int i = 0; i < a.length; i++){
-		
-			System.out.println(a.element[i]);
-			
-		}
-		
-		System.out.println();
-		
-		for(int i = 0; i < c.length; i++){
-			
-			System.out.println(c[i]);
-			
-		}
 		
 	}
 
