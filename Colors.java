@@ -1,4 +1,3 @@
-package vecka1;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -20,7 +19,8 @@ public class Colors{
 		red.addActionListener(new ActionListener(){
 			
 			public void actionPerformed(ActionEvent event){
-
+				
+				circle.setColor(Color.RED);
 				label.repaint();
 				
 			}
@@ -31,6 +31,7 @@ public class Colors{
 			
 			public void actionPerformed(ActionEvent event){
 				
+				circle.setColor(Color.GREEN);
 				label.repaint();
 				
 			}
@@ -41,6 +42,7 @@ public class Colors{
 			
 			public void actionPerformed(ActionEvent event){
 				
+				circle.setColor(Color.BLUE);
 				label.repaint();
 				
 			}

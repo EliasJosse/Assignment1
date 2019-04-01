@@ -1,4 +1,3 @@
-package vecka1;
 import java.awt.*;
 import java.awt.geom.*;
 import javax.swing.*;
@@ -33,6 +32,12 @@ public class CircleIcon implements Icon{
 		Ellipse2D.Double circle = new Ellipse2D.Double(x, y, size, size);
 		g2.setColor(c);
 		g2.fill(circle);
+		
+	}
+	
+	public void setColor(Color color){
+		
+		c = color;
 		
 	}
 
