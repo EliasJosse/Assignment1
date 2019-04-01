@@ -1,6 +1,5 @@
-package vecka1;
 
-public class test{
+public class testFilter{
 	
 
 	public static String[] filter(String[] a, Filter f){
@@ -21,8 +20,8 @@ public class test{
 	
 	public static void main(String[] args){
 		String[] words = {"hej","detta","e","en","massa","olika","ord"};
-		Filter f = new stringFilter();
-		words = test.filter(words, f);
+		Filter f = new maxThreeFilter();
+		words = testFilter.filter(words, f);
 		for (int j = 0; j < words.length; j++) {
 			System.out.println(words[j]);
 		}
